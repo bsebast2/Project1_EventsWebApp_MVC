@@ -2,6 +2,8 @@
 const express=require('express');
 const morgan=require('morgan');
 const methodOverride=require('method-override');
+const mainRoutes=require('./routes/mainRoutes');
+const connectionRoutes=require('./routes/connectionRoutes');
 const storyRoutes=require('./routes/storyRoutes');
 
 //create  app
@@ -22,11 +24,13 @@ app.use(methodOverride('_method'));
 
 
 //set up routes
-app.get('/',(req,res)=>{
-    res.render('index');
-});
-
+//app.get('/',(req,res)=>{
+//   res.render('index');
+//});
+app.use('/',mainRoutes);
 app.use('/stories',storyRoutes);
+app.use('/connections',connectionRoutes);
+
 
 app.use((req,res,next)=>{
     let err=new Error('The server cannot locate'+ req.url);

@@ -1,0 +1,51 @@
+<%-include('../partials/header.ejs')%>
+
+
+
+    <div class = "content">
+    <h2 class="newConnectionHeader">Browse All Music Lessons</h2>
+    <ul class = "nav connections">
+        
+        
+           <h2>Piano Lessons </h2>
+           <%   if(connections.length){ %>
+            <%      connections.forEach(connection=>{  %>
+               <% if(connection.topic=="Piano"){%>
+                     <a href="/connections/<%= connection.id%>"> <p><%=connection.name%></p> </a>  
+               <% }  }) 
+              }
+              else{ %>
+                  <p>There is no story to display.</p>
+              <%}%>
+           
+      
+            <h2>Guitar Lessons </h2>
+            
+            <%   if(connections.length){ %>
+                <%      connections.forEach(connection=>{  %>
+                   <% if(connection.topic=="Guitar"){%>
+                         <a href="/connections/<%= connection.id%>"> <p><%=connection.name%></p> </a>  
+                   <% }  }) 
+                  }
+                  else{ %>
+                      <p>There is no story to display.</p>
+                  <%}%>
+           
+            
+        
+            <h2>Drum Lessons </h2>
+           
+            <%   if(connections.length){ %>
+                <%      connections.forEach(connection=>{  %>
+                   <% if(connection.topic=="Drums"){%>
+                         <a href="/connections/<%= connection.id%>"> <p><%=connection.name%></p> </a>  
+                   <% }  }) 
+                  }
+                  else{ %>
+                      <p>There is no story to display.</p>
+                  <%}%>
+
+    </ul>
+</div>
+
+        <%-include('../partials/footer.ejs')%>
